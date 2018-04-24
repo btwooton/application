@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 import JobCard from './JobCard';
 import EmployeeCard from './EmployeeCard';
 import { Jobs } from '../../api/jobs/jobs';
-import { Skills } from '../../api/skills/skills';
-import { Categories } from '../../api/categories/categories';
+import { Skills, SkillsString } from '../../api/skills/skills';
+import { Categories, CategoriesString } from '../../api/categories/categories';
 
 
 const pastHelpers = [
@@ -288,8 +288,8 @@ EmployerLanding.propTypes = {
 
 export default withTracker(() => {
   const jobSubscription = Meteor.subscribe('UserJobs');
-  const skillSubscription = Meteor.subscribe('SkillsString');
-  const categorySubscription = Meteor.subscribe('CategoriesString');
+  const skillSubscription = Meteor.subscribe(SkillsString);
+  const categorySubscription = Meteor.subscribe(CategoriesString);
   return {
     ready: jobSubscription.ready() && skillSubscription.ready() && categorySubscription.ready(),
     jobs: Jobs.find({}).fetch(),

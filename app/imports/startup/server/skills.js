@@ -16,6 +16,6 @@ if (Skills.find().count() === 0) {
 }
 
 /** This subscription publishes all skills in the collection */
-Meteor.publish('SkillsString', function publish() {
+Meteor.publish(SkillsString, function publish() {
   return Skills.find({});
 });

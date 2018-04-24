@@ -16,6 +16,6 @@ if (Categories.find().count() === 0) {
 }
 
 /** This subscription publishes all categories */
-Meteor.publish('CategoriesString', function publish() {
+Meteor.publish(CategoriesString, function publish() {
   return Categories.find({});
 });
